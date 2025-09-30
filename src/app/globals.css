@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-yellow: #FDB056;
+    --color-primary: #1D5B43;
+    --color-secondary: #FFBB00;
+    --color-error: #FF4E4E;
+    --color-white: #FFFFFF;
+    --color-bg: #232829;
+    --color-bgc: #191E1F;
+}
+
 html, body, #__next {
     height: 100%;
 }
@@ -9,6 +19,6 @@ html, body, #__next {
 body {
     margin: 0;
     padding: 0;
-    background: #0f1720;
+    background: #232829;
     color: #fff;
 }

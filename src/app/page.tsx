@@ -55,7 +55,7 @@ export default function Page() {
     if (error) return <div className="pt-[120px]">Ошибка при загрузке</div>
 
     return (
-        <div className="min-h-screen bg-[#0f1720] text-white">
+        <div className="min-h-screen bg-[#fff] text-white">
             <HeaderTimer startSeconds={959} onExpire={onExpire}/>
 
             <main className="container">
@@ -97,7 +97,7 @@ export default function Page() {
 
                 <button
                     onClick={() => selectedId && handleBuy(selectedId)}
-                    className="ml-auto px-6 py-2 rounded bg-yellow-500 text-black font-semibold hover:opacity-90"
+                    className="btn"
                 >
                     Купить выбранный
                 </button>

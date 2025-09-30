@@ -4,7 +4,6 @@ background-color: #232829;
 
 .text-and-tariff {
     padding: 20px 16px;
-    border: 1px solid #ffc400;
     display: flex;
     justify-content: center;
     font-size: 22px;
@@ -26,6 +25,20 @@ background-color: #232829;
 }
 
 .text-tariff {
-    color: #FDB056;
+    color: var(--color-bgc);
+
 }
 
+.btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid red;
+    background: var(--color-yellow);
+    color: var(--color-bgc);
+    border-radius: 20px;
+    height: 55px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
