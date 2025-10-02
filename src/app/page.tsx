@@ -38,7 +38,7 @@ export default function Page() {
         <div className="min-h-screen bg-[#232829] text-white">
             <HeaderTimer startSeconds={959} onExpire={onExpire}/>
 
-            <main className="bg-[#232829]">
+            <div className="main-div">
                 <div
                     className="
       flex justify-start font-bold
@@ -59,7 +59,7 @@ export default function Page() {
                     </div>
                 </div>
 
-            <div className="padd">
+            <div className="main-conter">
 
                 {tariffs?.map((t, idx) => (
                     <TariffCard
@@ -74,9 +74,6 @@ export default function Page() {
                 ))}
             </div>
 
-                <div
-                    // className="mt-8 flex items-center gap-4"
-                >
                     <div className="desctiption">
                         Примечание: при окончании таймера скидочные цены исчезнут и останутся полные цены.
                     </div>
@@ -123,8 +120,7 @@ export default function Page() {
                 </div>
                 </div>
 
-            </main>
-        </div>
+            </div>
     )
 }
 

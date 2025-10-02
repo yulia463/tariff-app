@@ -49,8 +49,7 @@ export default function TariffCard({
 
                         </div>
 
-                        <div className="text-frorr">{tariff.text}</div>
-
+                        <div className="text-container-div">{tariff.text}</div>
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
