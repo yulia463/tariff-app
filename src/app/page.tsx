@@ -81,6 +81,7 @@ export default function Page() {
                         Примечание: при окончании таймера скидочные цены исчезнут и останутся полные цены.
                     </div>
 
+                    <div className="text-soglq">
                     <label className={`flex items-center gap-2 ${buyError ? 'text-red-400' : ''}`}>
                         <input
                             type="checkbox"
@@ -91,18 +92,36 @@ export default function Page() {
                             }}
                             className={`w-4 h-4 rounded ${buyError ? 'ring-2 ring-red-400' : ''}`}
                         />
-                        <span className="text-sm">Согласен с условиями</span>
+                        <span className="text-sogl">Я согласен с офертой рекуррентных платежей и Политикой конфиденциальности </span>
                     </label>
-
+                    </div>
+                    <div className="btn-div">
                     <button
                         onClick={() => selectedId && handleBuy(selectedId)}
                         className="btn"
                     >
-                        Купить выбранный
+                        Купить
                     </button>
+                    </div>
                     {buyError && <div className="text-red-400 text-sm ml-4">{buyError}</div>}
                 </div>
+                <div className="text-div">
+                    Нажимая кнопку «Купить», Пользователь соглашается на разовое списание денежных средств для получения
+                    пожизненного доступа к приложению. Пользователь соглашается, что данные кредитной/дебетовой карты
+                    будут сохранены для осуществления покупок дополнительных услуг сервиса в случае желания
+                    пользователя.
+                </div>
 
+                <div className="gray-container">
+                    <div className="green-div">
+                        гарантия возврата 30 дней
+                    </div>
+                    <div className="gray-div">
+                    Мы уверены, что наш план сработает для тебя и ты увидишь видимые результаты уже через 4 недели! Мы
+                    даже готовы полностью вернуть твои деньги в течение 30 дней с момента покупки, если ты не получишь
+                    видимых результатов.
+                </div>
+                </div>
 
             </main>
         </div>
