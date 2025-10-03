@@ -60,7 +60,6 @@ export default function Page() {
                 </div>
 
             <div className="main-conter">
-
                 {tariffs?.map((t, idx) => (
                     <TariffCard
                         key={`${t.id}-${idx}`}
