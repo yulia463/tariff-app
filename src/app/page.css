@@ -8,6 +8,17 @@
     }
 
 }
+.container-image {
+    border: 1px solid red;
+    display: flex;
+}
+
+.image {
+    width: 500px;
+    background-color: black;
+    background-image: url("public/assets/background.png");
+    background-size: cover;
+}
 .main-conter {
     display: flex;
     flex-direction: column;
