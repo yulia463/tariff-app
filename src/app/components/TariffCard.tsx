@@ -27,9 +27,18 @@ export default function TariffCard({
             onClick={onSelect}
             className='container'>
 
-                        {isDiscountActive && discountPercent > 0 && (
+            {isDiscountActive && !isFirst && discountPercent > 0 && (
                             <div className="discountPercent">{`-${discountPercent}%`}</div>
                         )}
+
+            {isFirst && discountPercent > 0 && (
+                <div className="discountPercentAndHit">
+                    { isDiscountActive &&(<div className="discountPercent">{`-${discountPercent}%`}</div>)}
+                    <div className="hit">хит!</div>
+                </div>
+
+            )}
+
                         <div>
                             <div className="period">{tariff.period}</div>
                         </div>
