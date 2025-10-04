@@ -18,6 +18,9 @@ export const api = createApi({
     endpoints: (builder) => ({
         getItems: builder.query<Tariff[], void>({
             query: () => '/GetTariffs',
+            transformResponse: (response: Tariff[]) => {
+                return [...response].reverse();
+            },
         }),
     }),
 })

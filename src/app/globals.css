@@ -2,16 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
     --color-yellow: #FDB056;
     --color-primary: #1D5B43;
     --color-secondary: #FFBB00;
     --color-error: #FF4E4E;
+    --color-text-div: #DCDCDC;
+    --color-div-green: #81FE95;
     --color-white: #FFFFFF;
     --color-bg: #232829;
+    --color-gray: #9B9B9B;
     --color-gray-100: #919191;
     --color-gray-300: #313637;
     --color-gray-dark: #484D4E;
+
     --color-bgc: #191E1F;
 }
 
@@ -24,4 +29,5 @@ body {
     padding: 0;
     background: #232829;
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
