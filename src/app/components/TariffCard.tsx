@@ -1,7 +1,8 @@
 'use client'
 import React from 'react'
-import { Tariff } from 'services/api'
+import {Tariff} from 'services/api'
 import "../page.css"
+
 export default function TariffCard({
                                        tariff,
                                        isDiscountActive,
@@ -9,6 +10,7 @@ export default function TariffCard({
                                        onSelect,
                                        onBuyClick,
                                        showBig = false,
+                                       isFirst = false
                                    }: {
     tariff: Tariff
     isDiscountActive: boolean
@@ -16,6 +18,7 @@ export default function TariffCard({
     onSelect: () => void
     onBuyClick: (tariffId: string) => void
     showBig?: boolean
+    isFirst?: boolean
 }) {
     const discountPercent = Math.round(100 - (tariff.price / tariff.full_price) * 100)
 
@@ -23,12 +26,6 @@ export default function TariffCard({
         <div
             onClick={onSelect}
             className='container'>
-
-                {/*<div*/}
-                {/*    className="hidden md:block w-36 flex-shrink-0"*/}
-                {/*>*/}
-                {/*    <img src="/model.png" alt="" className="object-contain w-full h-full" />*/}
-                {/*</div>*/}
 
                         {isDiscountActive && discountPercent > 0 && (
                             <div className="discountPercent">{`-${discountPercent}%`}</div>
@@ -50,17 +47,7 @@ export default function TariffCard({
                         </div>
 
                         <div className="text-container-div">{tariff.text}</div>
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    onBuyClick(tariff.id)
-                                }}
-                                className={` ${selected ? 'animate-blink' : ''}`}
-                                // className={`px-4 py-2 rounded-md shadow-md ${selected ? 'animate-blink' : ''}`}
-                                aria-label={`Купить ${tariff.period}`}
-                            >
-                                Купить
-                            </button>
-                        </div>
+
+        </div>
     )
 }

@@ -4,7 +4,6 @@ import {useGetItemsQuery} from "services/api";
 import React from 'react'
 import HeaderTimer from "@/app/components/HeaderTimer";
 import TariffCard from "@/app/components/TariffCard";
-import Image from "next/image";
 import "./page.css"
 
 export default function Page() {
@@ -25,7 +24,7 @@ export default function Page() {
 
     const handleBuy = (tariffId: string) => {
         if (!agreeChecked) {
-            setBuyError('Необходимо подтвердить соглашение')
+            alert('Необходимо подтвердить соглашение')
             return
         }
         setBuyError(null)
@@ -48,7 +47,6 @@ export default function Page() {
                         min-[375px]:text-[24px]
                         min-[440px]:text-[40px]
                         min-[440px]:pt-[50px]
-                        min-[440px]:justify-center
                         "
                 >
                     <div className="m-0">
@@ -63,55 +61,86 @@ export default function Page() {
                     <div className={"image"}></div>
 
                     <div className="main-conter">
-                        {tariffs?.map((t, idx) => (
+                        {tariffs && tariffs?.length > 0 && (
                             <TariffCard
-                                key={`${t.id}-${idx}`}
-                                tariff={t}
+                                tariff={tariffs[0]}
                                 isDiscountActive={isDiscountActive}
-                                selected={selectedId === t.id}
-                                onSelect={() => setSelectedId(t.id)}
+                                selected={selectedId === tariffs[0].id}
+                                onSelect={() => setSelectedId(tariffs[0].id)}
                                 onBuyClick={handleBuy}
-                                showBig={t.is_best}
+                                showBig={tariffs[0].is_best}
                             />
-                        ))}
+                        )}
+
+                        <div className="deals-container">
+                            {tariffs?.slice(1).map((t, idx) => (
+                                <TariffCard
+                                    key={t.id}
+                                    tariff={t}
+                                    isDiscountActive={isDiscountActive}
+                                    selected={selectedId === t.id}
+                                    onSelect={() => setSelectedId(t.id)}
+                                    onBuyClick={handleBuy}
+                                    showBig={t.is_best}
+                                />
+                            ))}
+                        </div>
 
 
-                    <div className="desctiption">
-                        Примечание: при окончании таймера скидочные цены исчезнут и останутся полные цены.
+
+                        {/*{tariffs?.map((t, idx) => {*/}
+                        {/*    return (*/}
+                        {/*        <TariffCard*/}
+                        {/*            key={`${t.id}-${idx}`}*/}
+                        {/*            tariff={t}*/}
+                        {/*            isDiscountActive={isDiscountActive}*/}
+                        {/*            selected={selectedId === t.id}*/}
+                        {/*            onSelect={() => setSelectedId(t.id)}*/}
+                        {/*            onBuyClick={handleBuy}*/}
+                        {/*            showBig={t.is_best}*/}
+                        {/*        />*/}
+                        {/*    )*/}
+                        {/*})}*/}
+
+
+                        <div className="desctiption">
+                            Примечание: при окончании таймера скидочные цены исчезнут и останутся полные цены.
+                        </div>
+
+                        <div className="text-soglq">
+                            <label className={`flex items-center gap-2 ${buyError ? 'text-red-400' : ''}`}>
+                                <input
+                                    type="checkbox"
+                                    checked={agreeChecked}
+                                    onChange={(e) => {
+                                        setAgreeChecked(e.target.checked);
+                                        setBuyError(null)
+                                    }}
+                                    className={`w-4 h-4 rounded ${buyError ? 'ring-2 ring-red-400' : ''}`}
+                                />
+                                <span className="text-sogl">Я согласен с офертой рекуррентных платежей и Политикой конфиденциальности </span>
+                            </label>
+                        </div>
+
+                        <div className="btn-div">
+                            <button
+                                onClick={() => selectedId && handleBuy(selectedId)}
+                                className="btn"
+                            >
+                                Купить
+                            </button>
+                        </div>
+                        {buyError && <div className="text-red-400 text-sm ml-4">{buyError}</div>}
+
+                        <div className="text-div">
+                            Нажимая кнопку «Купить», Пользователь соглашается на разовое списание денежных средств для
+                            получения
+                            пожизненного доступа к приложению. Пользователь соглашается, что данные кредитной/дебетовой
+                            карты
+                            будут сохранены для осуществления покупок дополнительных услуг сервиса в случае желания
+                            пользователя.
+                        </div>
                     </div>
-
-                    <div className="text-soglq">
-                        <label className={`flex items-center gap-2 ${buyError ? 'text-red-400' : ''}`}>
-                            <input
-                                type="checkbox"
-                                checked={agreeChecked}
-                                onChange={(e) => {
-                                    setAgreeChecked(e.target.checked);
-                                    setBuyError(null)
-                                }}
-                                className={`w-4 h-4 rounded ${buyError ? 'ring-2 ring-red-400' : ''}`}
-                            />
-                            <span className="text-sogl">Я согласен с офертой рекуррентных платежей и Политикой конфиденциальности </span>
-                        </label>
-                    </div>
-
-                    <div className="btn-div">
-                        <button
-                            onClick={() => selectedId && handleBuy(selectedId)}
-                            className="btn"
-                        >
-                            Купить
-                        </button>
-                    </div>
-                    {buyError && <div className="text-red-400 text-sm ml-4">{buyError}</div>}
-                    </div>
-                </div>
-
-                <div className="text-div">
-                    Нажимая кнопку «Купить», Пользователь соглашается на разовое списание денежных средств для получения
-                    пожизненного доступа к приложению. Пользователь соглашается, что данные кредитной/дебетовой карты
-                    будут сохранены для осуществления покупок дополнительных услуг сервиса в случае желания
-                    пользователя.
                 </div>
 
                 <div className="gray-container">
