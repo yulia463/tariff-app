@@ -109,18 +109,56 @@ export default function Page() {
                         </div>
 
                         <div className="text-soglq">
-                            <label className={`flex items-center gap-2 ${buyError ? 'text-red-400' : ''}`}>
-                                <input
-                                    type="checkbox"
-                                    checked={agreeChecked}
-                                    onChange={(e) => {
-                                        setAgreeChecked(e.target.checked);
-                                        setBuyError(null)
+                            <div className="text-soglq">
+                                <label
+                                    className={`flex items-center gap-2 cursor-pointer select-none ${
+                                        buyError ? 'text-red-400' : ''
+                                    }`}
+                                    onClick={() => {
+                                        setAgreeChecked(!agreeChecked);
+                                        setBuyError(null);
                                     }}
-                                    className={`w-4 h-4 rounded ${buyError ? 'ring-2 ring-red-400' : ''}`}
-                                />
-                                <span className="text-sogl">Я согласен с офертой рекуррентных платежей и Политикой конфиденциальности </span>
-                            </label>
+                                >
+                                    <div
+                                        className={`custom-checkbox ${agreeChecked ? 'checked' : ''} ${
+                                            buyError ? 'error' : ''
+                                        }`}
+                                    >
+                                        {agreeChecked && (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="#FDB056"
+                                                strokeWidth="3"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <polyline points="21 5 10 18 3 11" />
+                                            </svg>
+                                        )}
+                                    </div>
+
+                                    <span className="text-sogl">
+      Я согласен с офертой рекуррентных платежей и Политикой конфиденциальности
+    </span>
+                                </label>
+                            </div>
+
+                            {/*<label className={`flex items-center gap-2 ${buyError ? 'text-red-400' : ''}`}>*/}
+                            {/*    <input*/}
+                            {/*        type="checkbox"*/}
+                            {/*        checked={agreeChecked}*/}
+                            {/*        onChange={(e) => {*/}
+                            {/*            setAgreeChecked(e.target.checked);*/}
+                            {/*            setBuyError(null)*/}
+                            {/*        }}*/}
+                            {/*        className={`w-4 h-4 rounded ${buyError ? 'ring-2 ring-red-400' : ''}`}*/}
+                            {/*    />*/}
+                            {/*    <span className="text-sogl">Я согласен с офертой рекуррентных платежей и Политикой конфиденциальности </span>*/}
+                            {/*</label>*/}
                         </div>
 
                         <div className="btn-div">
