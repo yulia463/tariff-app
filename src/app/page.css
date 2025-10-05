@@ -126,35 +126,37 @@
     margin-top: -2px;
     display: flex;
     align-self: end;
-    /*margin-right: 30px;*/
     background-color: var(--color-red-div);
     font-size: 13px;
     padding: 3px 6px 3px 6px;
     border-radius: 0 0 6px 6px;
+    margin-right: 28px;
 
     @media (min-width: 375px) {
         font-size: 16px;
         border-radius: 0 0 8px 8px;
+        margin-right: 30px;
     }
     @media (min-width: 767px) {
         font-size: 22px;
         margin-bottom: 30px;
+        margin-right: 119px;
+
     }
 }
 
 .discountPercentAndHit {
-    display: flex; /* расположить в строку */
-    /*align-items: center;       !* выровнять по вертикали *!*/
-    gap: 8px;
+    display: flex;
     align-self: end;
     padding-right: 14px;
-
 
     @media (min-width: 375px) {
         gap: 14px;
     }
     @media (min-width: 767px) {
-
+    border: 1px solid red;
+        align-self: auto;
+        justify-content: space-between;
     }
 }
 

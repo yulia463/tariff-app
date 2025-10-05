@@ -25,7 +25,7 @@ export default function TariffCard({
     return (
         <div
             onClick={onSelect}
-            className='container'>
+            className={`container ${isFirst ? 'first-tariff' : ''}`}>
 
             {isDiscountActive && !isFirst && discountPercent > 0 && (
                             <div className="discountPercent">{`-${discountPercent}%`}</div>
