@@ -45,12 +45,12 @@ export default function Page() {
                         pt-[20px] px-[16px]
                         text-[22px]
                         min-[375px]:text-[24px]
-                        min-[440px]:text-[40px]
-                        min-[440px]:pt-[50px]
+                        min-[767px]:text-[40px]
+                        min-[767px]:pt-[50px]
                         "
                 >
                     <div className="m-0">
-                        <span className="whitespace-nowrap block min-[440px]:inline">Выбери подходящий</span>{" "}
+                        <span className="whitespace-nowrap block min-[767px]:inline">Выбери подходящий</span>{" "}
                         <span className="block min-[440px]:inline">для себя <span
                             className="text-[var(--color-yellow)]">тариф</span>
                         </span>
@@ -69,6 +69,7 @@ export default function Page() {
                                 onSelect={() => setSelectedId(tariffs[0].id)}
                                 onBuyClick={handleBuy}
                                 showBig={tariffs[0].is_best}
+                                isFirst
                             />
                         )}
 
