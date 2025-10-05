@@ -49,7 +49,7 @@ export default function Page() {
                         min-[767px]:pt-[50px]
                         "
                 >
-                    <div className="m-0">
+                    <div className="m-0 min-[767px]:mb-[110px]">
                         <span className="whitespace-nowrap block min-[767px]:inline">Выбери подходящий</span>{" "}
                         <span className="block min-[440px]:inline">для себя <span
                             className="text-[var(--color-yellow)]">тариф</span>
@@ -86,23 +86,6 @@ export default function Page() {
                                 />
                             ))}
                         </div>
-
-
-
-                        {/*{tariffs?.map((t, idx) => {*/}
-                        {/*    return (*/}
-                        {/*        <TariffCard*/}
-                        {/*            key={`${t.id}-${idx}`}*/}
-                        {/*            tariff={t}*/}
-                        {/*            isDiscountActive={isDiscountActive}*/}
-                        {/*            selected={selectedId === t.id}*/}
-                        {/*            onSelect={() => setSelectedId(t.id)}*/}
-                        {/*            onBuyClick={handleBuy}*/}
-                        {/*            showBig={t.is_best}*/}
-                        {/*        />*/}
-                        {/*    )*/}
-                        {/*})}*/}
-
 
                         <div className="desctiption">
                             Примечание: при окончании таймера скидочные цены исчезнут и останутся полные цены.

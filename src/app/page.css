@@ -68,60 +68,34 @@
         flex-direction: row;
     }
 }
+
+
+
+
+
+
 .container {
     position: relative;
     display: flex;
     flex-direction: column;
-    /*!*border: 2px solid var(--color-yellow);*! сделать такой бортик если ты нажал на это поле */
     border: 2px solid var(--color-gray-dark);
     border-radius: 20px;
     background: var(--color-gray-300);
     margin-bottom: 10px;
-    /*max-width: 748px;*/
-    /*min-width: 240px;*/
     box-sizing: border-box;
-    padding-left: 20px;
+    padding: 0 0 20px 20px;
 
     @media (min-width: 375px) {
         margin-bottom: 12px;
-        /*padding-left: 30px;*/
 
     }
     @media (min-width: 400px) {
         margin-bottom: 20px;
-        /*padding-left: 36px;*/
     }
 }
-
-.period {
-    font-weight: 500;
-    font-size: 16px;
-    padding-bottom: 12px;
-
-    @media (min-width: 375px) {
-        font-size: 18px;
-        padding-bottom: 16px;
-    }
-
-    @media (min-width: 767px) {
-        font-size: 26px;
-        padding-bottom: 30px;
-    }
-
+.container.border-yellow {
+    border-color: var(--color-yellow);
 }
-
-.text-container-div {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 130%;
-    padding-bottom: 33px;
-
-    @media (min-width: 767px) {
-        font-size: 16px;
-
-    }
-}
-
 .discountPercent {
     margin-top: -2px;
     display: flex;
@@ -144,7 +118,6 @@
 
     }
 }
-
 .discountPercentAndHit {
     display: flex;
     align-self: end;
@@ -154,12 +127,10 @@
         gap: 14px;
     }
     @media (min-width: 767px) {
-    border: 1px solid red;
         align-self: auto;
         justify-content: space-between;
     }
 }
-
 .hit {
     color: var(--color-yellow);
     font-size: 13px;
@@ -173,6 +144,45 @@
         font-size: 22px;
     }
 }
+.first-block{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.first-block > * {
+    flex: 1;
+}
+.second-block{
+    @media (min-width: 767px) {
+        padding-right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        box-sizing: border-box;
+    }
+}
+.third-block {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+.period {
+    font-weight: 500;
+    font-size: 16px;
+    padding-right: 12px;
+
+    @media (min-width: 375px) {
+        font-size: 18px;
+        padding-right: 16px;
+    }
+
+    @media (min-width: 767px) {
+        font-size: 26px;
+        padding-right: 30px;
+    }
+
+}
 .discountActive {
     font-weight: 600;
     font-size: 30px;
@@ -184,8 +194,8 @@
         font-size: 50px;
     }
 }
-
 .full-price {
+    align-self: end;
     font-weight: 400;
     font-size: 14px;
     color: var(--color-gray-100);
@@ -199,6 +209,25 @@
         font-size: 24px;
     }
 }
+.text-container-div {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    padding-bottom: 33px;
+
+    @media (min-width: 767px) {
+        font-size: 16px;
+
+    }
+}
+
+
+
+
+
+
+
+
 
 .text-soglq {
     margin-bottom: 16px;

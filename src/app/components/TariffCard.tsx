@@ -6,10 +6,7 @@ import "../page.css"
 export default function TariffCard({
                                        tariff,
                                        isDiscountActive,
-                                       selected,
                                        onSelect,
-                                       onBuyClick,
-                                       showBig = false,
                                        isFirst = false
                                    }: {
     tariff: Tariff
@@ -25,7 +22,7 @@ export default function TariffCard({
     return (
         <div
             onClick={onSelect}
-            className={`container ${isFirst ? 'first-tariff' : ''}`}>
+            className={`container ${isFirst ? 'border-yellow' : ''}`}>
 
             {isDiscountActive && !isFirst && discountPercent > 0 && (
                             <div className="discountPercent">{`-${discountPercent}%`}</div>
@@ -39,23 +36,25 @@ export default function TariffCard({
 
             )}
 
-                        <div>
-                            <div className="period">{tariff.period}</div>
-                        </div>
+            <div className={'first-block'}>
+                <div className={'second-block'}>
+                    <div>
+                        <div className="period">{tariff.period}</div>
+                    </div>
 
 
-                        <div>
-                            <div  className="discountActive">
+                    <div className={'third-block'}>
+                        <div className="discountActive">
                                 {isDiscountActive ? `${tariff.price} ₽` : `${tariff.full_price} ₽`}
-                            </div>
-
-                            {isDiscountActive && (
-                                <div  className="full-price">{tariff.full_price} ₽</div>
-                            )}
-
                         </div>
+                        {isDiscountActive && (
+                            <div className="full-price">{tariff.full_price} ₽</div>
+                        )}
+                    </div>
+                </div>
 
-                        <div className="text-container-div">{tariff.text}</div>
+                <div className="text-container-div">{tariff.text}</div>
+            </div>
 
         </div>
     )
