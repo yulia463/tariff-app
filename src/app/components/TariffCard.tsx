@@ -39,14 +39,14 @@ export default function TariffCard({
             {isDiscountActive && !isFirst && discountPercent > 0 && (
                 <div
                     className={`
-        mt-[-2px] self-end 
-        bg-red-div 
-        text-[13px] 
-        px-[6px] py-[3px] 
-        rounded-b-[6px] 
-        mr-[28px]
-        sm:text-[16px] sm:rounded-b-[8px] sm:mr-[30px]
-        md:text-[22px] md:mr-[119px] md:mb-[30px]
+                     mt-[-2px] self-end 
+                     bg-red-div 
+                     text-[13px] 
+                     px-[6px] py-[3px] 
+                     rounded-b-[6px] 
+                     mr-[28px]
+                     sm:text-[16px] sm:rounded-b-[8px] sm:mr-[30px]
+                     md:text-[22px] md:mr-[119px] md:mb-[30px]
       `}
                 >
                     -{discountPercent}%
@@ -56,22 +56,22 @@ export default function TariffCard({
             {isFirst && discountPercent > 0 && (
                 <div
                     className={`
-        flex justify-between items-center w-full pr-[14px]
-        sm:gap-[14px]
-        md:flex-row md:justify-between md:items-center
+                     flex justify-between items-center w-full pr-[14px]
+                     sm:gap-[14px]
+                     md:flex-row md:justify-between md:items-center
       `}
                 >
                     {isDiscountActive && (
                         <div
                             className={`
-            mt-[-2px]
-            bg-red-div
-            text-[13px]
-            px-[6px] py-[3px]
-            rounded-b-[6px]
-            mr-[10px]
-            sm:text-[16px] sm:rounded-b-[8px] sm:mr-[16px]
-            md:text-[22px] md:mr-[20px]
+                             mt-[-2px]
+                             bg-red-div
+                             text-[13px]
+                             px-[6px] py-[3px]
+                             rounded-b-[6px]
+                             mr-[10px]
+                             sm:text-[16px] sm:rounded-b-[8px] sm:mr-[16px]
+                             md:text-[22px] md:mr-[20px]
           `}
                         >
                             -{discountPercent}%
@@ -79,10 +79,10 @@ export default function TariffCard({
                     )}
                     <div
                         className={`
-          text-yellow font-medium leading-[130%] 
-          text-[13px] 
-          sm:text-[16px] 
-          md:text-[22px]
+                         text-yellow font-medium leading-[130%] 
+                         text-[13px] 
+                         sm:text-[16px] 
+                         md:text-[22px]
         `}
                     >
                         хит!
@@ -92,31 +92,37 @@ export default function TariffCard({
 
             <div
                 className={`
-      flex flex-row justify-between items-center
-      gap-[10px]
-      md:gap-[40px]
-      ${isFirst ? 'md:flex-row md:pl-[122px] md:items-center' : 'md:flex-col md:items-center md:pl-0'}
+                 flex flex-row justify-between items-center
+                 gap-[10px]
+                 md:gap-[40px]
+                 ${isFirst ? 'md:flex-row md:pl-[122px] md:items-center' : 'md:flex-col md:items-center md:pl-0'}
     `}
             >
                 <div
                     className={`
-        flex flex-col items-start md:items-end
-        ${isFirst ? '' : 'md:mb-[10px]'}
+                      flex flex-col items-start md:items-end
+                      ${isFirst ? '' : 'md:mb-[10px]'}
       `}
                 >
-                    <div className="font-medium text-[16px] mobile-375:text-[18px] md:text-[26px] text-white">
+                    <div className="
+                          font-medium
+                          text-[16px]
+                          mobile-375:text-[18px]
+                          md:text-[26px]
+                          text-white"
+                    >
                         {tariff.period}
                     </div>
 
                     <div className="flex flex-col w-fit">
                         <div
                             className={`
-            font-semibold
-            text-[30px]
-            sm:text-[34px]
-            md:text-[50px]
-            whitespace-nowrap
-            ${isFirst ? 'text-yellow' : 'text-white'}
+                             font-semibold
+                             text-[30px]
+                             sm:text-[34px]
+                             md:text-[50px]
+                             whitespace-nowrap
+                             ${isFirst ? 'text-yellow' : 'text-white'}
           `}
                         >
                             {isDiscountActive ? `${tariff.price} ₽` : `${tariff.full_price} ₽`}
@@ -124,29 +130,36 @@ export default function TariffCard({
 
                         {isDiscountActive && (
                             <div
-                                className="self-end font-normal text-[14px] text-gray-100 line-through decoration-[1px] mobile-375:text-[16px] md:text-[24px]"
+                                className="
+                                self-end font-normal
+                                text-[14px]
+                                text-gray-100
+                                line-through
+                                decoration-[1px]
+                                mobile-375:text-[16px]
+                                md:text-[24px]"
                             >
                                 {tariff.full_price} ₽
                             </div>
                         )}
                     </div>
                 </div>
-
-                {/* --- Текст --- */}
                 <div
                     className={`
-        font-normal text-[14px] leading-[130%] text-white md:text-[16px]
-        pl-[10px] md:pl-[40px]
-        md:max-w-[360px] md:text-left
-        ${isFirst ? 'md:self-center' : ''}
+                     font-normal text-[14px] 
+                     leading-[130%] 
+                     text-white 
+                     md:text-[16px]
+                     pl-[10px] 
+                     md:pl-[40px]
+                     md:max-w-[360px] 
+                     md:text-left
+                     ${isFirst ? 'md:self-center' : ''}
       `}
                 >
                     {tariff.text}
                 </div>
             </div>
         </div>
-
     )
-
-
 }
