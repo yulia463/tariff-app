@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { useCountdown } from "@/app/hooks/useCountdown";
-import "./HeaderTimer.css";
 
 export default function HeaderTimer({
-  startSeconds = 960, // 16 минут
+  startSeconds = 960,
   onExpire,
 }: {
   startSeconds?: number;
@@ -20,41 +19,44 @@ export default function HeaderTimer({
   if (secondsLeft <= 2 * 60 + 59 && secondsLeft > 0) timerColor = "#FF4E4E";
   if (secondsLeft === 0) timerColor = "#FFFFFF";
 
+  const isBlinking = secondsLeft <= 30 && secondsLeft > 0;
+
   return (
     <header
       className="
-    w-full
-    bg-[#1D5B43]
-    rounded-t-[60px]
-    flex flex-col items-center justify-center
-    py-4   /* 16px сверху и снизу */
-    max-[430px]:rounded-none
+        w-full
+        bg-[#1D5B43]
+        rounded-t-[60px]
+        flex flex-col items-center justify-center
+        py-4
+        max-[430px]:rounded-none
   "
     >
       <div
         className="
-      font-semibold
-      text-white
-      text-center
-      mb-2           /* margin-bottom: 8px */
-      text-[24px]    /* font-size: 24px */
-      leading-[130%] /* line-height: 130% */
-      max-[375px]:text-[18px]
-      max-[320px]:text-[14px] max-[320px]:uppercase
+          font-semibold
+          text-white
+          text-center
+          mb-2
+          text-[24px]
+          leading-[130%]
+          max-[375px]:text-[18px]
+          max-[320px]:text-[14px]
+          max-[320px]:uppercase
     "
       >
         Успейте открыть пробную неделю
       </div>
 
       <div
-        className={`
+          className={`
       flex items-center
       font-bold 
-      text-[32px]    /* font-size: 32px */
-      leading-[110%] /* line-height: 110% */
+      text-[32px]    
+      leading-[110%] 
       max-[320px]:text-[28px]
     `}
-        style={{ color: timerColor }}
+          style={{color: timerColor}}
       >
         <div className="text-[14px] pr-[8px]">✦</div>
         <span>{String(minutes).padStart(2, "0")}</span>
@@ -64,4 +66,4 @@ export default function HeaderTimer({
       </div>
     </header>
   );
-}
+  }

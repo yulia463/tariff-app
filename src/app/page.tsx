@@ -4,7 +4,6 @@ import {useGetItemsQuery} from "services/api";
 import React from 'react'
 import HeaderTimer from "@/app/components/HeaderTimer";
 import TariffCard from "@/app/components/TariffCard";
-import "./page.css"
 
 export default function Page() {
     const {data: tariffs, error, isLoading} = useGetItemsQuery()
@@ -24,7 +23,7 @@ export default function Page() {
 
     const handleBuy = (tariffId: string) => {
         if (!agreeChecked) {
-            alert('Необходимо подтвердить соглашение')
+            setBuyError('Необходимо подтвердить соглашение')
             return
         }
         setBuyError(null)
@@ -38,7 +37,7 @@ export default function Page() {
         <div className="min-h-screen bg-bg text-white">
             <HeaderTimer startSeconds={959} onExpire={onExpire}/>
 
-            <div className="main-div">
+            <div className="bg-bg px-4 md:px-[15%]">
                 <div
                     className="
                         flex justify-start font-bold
@@ -94,7 +93,7 @@ export default function Page() {
                             className={`
         flex flex-col gap-[6px]
         sm:gap-[8px]
-        md:flex-row md:gap-[14px]
+        md:flex-row md:gap-[14px] 
     `}
                         >
                             {tariffs?.slice(1).map((t) => (
@@ -104,14 +103,22 @@ export default function Page() {
                                     isDiscountActive={isDiscountActive}
                                     selected={selectedId === t.id}
                                     onSelect={() => setSelectedId(t.id)}
-                                    onBuyClick={handleBuy}
                                     showBig={t.is_best}
+                                    isFirst={false}
                                 />
                             ))}
                         </div>
-                        <div className={'desctiption'}>Следуя плану на 3 месяца и более, люди получают в 2 раза лучший
-                            результат, чем за 1 месяц
+
+                        <div
+                            className="flex bg-gray-300 rounded-[16px] mb-4 sm:mb-6 p-[14px] sm:p-[14px_35px_14px_40px] md:mb-7 md:p-[18px_20px_18px_52px] md:max-w-[500px] items-start gap-2">
+                            <span
+                                className="font-bold text-yellow min-[320px]:pl-3 min-[375px]:pl-3 min-[767px]:pl-5">!</span>
+                            <span className="text-[12px] md:text-[16px]">
+    Следуя плану на 3 месяца и более, люди <span
+                                className="md:block">получают в 2 раза лучший результат, чем за 1 месяц</span>
+  </span>
                         </div>
+
 
                         <div className="mb-[16px] sm:mb-[20px] md:mb-[16px]">
                             <label
@@ -161,11 +168,18 @@ export default function Page() {
 
                         <div className="mb-[10px] sm:mb-[20px] sm:mr-[16px] md:mb-[34px] md:mt-[36px]">
                             <button
-                                onClick={() => selectedId && handleBuy(selectedId)}
+                                onClick={() => handleBuy(selectedId || '')}
+                                // onClick={() => selectedId && handleBuy(selectedId)}
+                                //            flex justify-center items-center w-full max-w-[352px]
+                                //             h-[55px] bg-yellow text-bgc
+                                //             rounded-[20px] font-bold text-[18px]
                                 className={`
-            flex justify-center items-center w-full max-w-[352px]
-            h-[55px] bg-yellow text-bgc
-            rounded-[20px] font-bold text-[18px]
+    flex justify-center items-center w-full max-w-[352px]
+    h-[55px] bg-yellow text-bgc
+    rounded-[20px] font-bold text-[18px]
+    hover:bg-yellow/80 active:bg-yellow/60
+    transition-all duration-150
+    ${buyError ? 'animate-pulse border-2 border-red-500' : ''}
         `}
                             >
                                 Купить

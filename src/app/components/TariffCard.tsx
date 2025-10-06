@@ -1,40 +1,39 @@
 'use client'
 import React from 'react'
 import {Tariff} from 'services/api'
-import "../page.css"
 
 export default function TariffCard({
                                        tariff,
                                        isDiscountActive,
                                        onSelect,
-                                       isFirst = false
+                                       selected = false,
+                                       isFirst = false,
+                                       showBig,
+                                       isOtherSelected
                                    }: {
     tariff: Tariff
-    isDiscountActive: boolean
-    selected: boolean
-    onSelect: () => void
-    onBuyClick: (tariffId: string) => void
+    isDiscountActive?: boolean
+    selected?: boolean
+    onSelect?: () => void
+    onBuyClick?: (tariffId: string) => void
     showBig?: boolean
     isFirst?: boolean
+    isOtherSelected?:boolean
 }) {
     const discountPercent = Math.round(100 - (tariff.price / tariff.full_price) * 100)
 
     return (
-
         <div
             onClick={onSelect}
             className={`
-    relative flex flex-col 
+relative flex flex-col
     border-2
-      ${isFirst
-                ? 'rounded-[20px] md:rounded-[34px]'
-                : 'rounded-[20px] md:rounded-[40px]'}
+    ${selected ? 'border-yellow' : 'border-gray-dark'}
+    ${isFirst ? 'rounded-[20px] md:rounded-[34px]' : 'rounded-[20px] md:rounded-[40px]'}
     bg-gray-300
-    mb-[10px] pb-[20px] pl-[20px] pr-[20px] 
-    box-border
-    ${isFirst ? 'border-yellow' : 'border-gray-dark'}
-    sm:mb-[12px] 
-    md:mb-[20px] md:pr-[80px]
+    mb-[10px] pb-[20px] pl-[20px] pr-[20px]
+    sm:mb-[12px] md:mb-[20px] md:pr-[80px]
+
   `}
         >
             {/* --- скидка, если не первый --- */}
