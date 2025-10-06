@@ -19,8 +19,6 @@ export default function HeaderTimer({
   if (secondsLeft <= 2 * 60 + 59 && secondsLeft > 0) timerColor = "#FF4E4E";
   if (secondsLeft === 0) timerColor = "#FFFFFF";
 
-  const isBlinking = secondsLeft <= 30 && secondsLeft > 0;
-
   return (
     <header
       className="
@@ -50,11 +48,11 @@ export default function HeaderTimer({
 
       <div
           className={`
-      flex items-center
-      font-bold 
-      text-[32px]    
-      leading-[110%] 
-      max-[320px]:text-[28px]
+           flex items-center
+           font-bold 
+           text-[32px]    
+           leading-[110%] 
+           max-[320px]:text-[28px]
     `}
           style={{color: timerColor}}
       >

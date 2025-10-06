@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`HeaderTimer matches snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class=" w-full bg-[#1D5B43] rounded-t-[60px] flex flex-col items-center justify-center py-4 max-[430px]:rounded-none "
+  >
+    <div
+      class=" font-semibold text-white text-center mb-2 text-[24px] leading-[130%] max-[375px]:text-[18px] max-[320px]:text-[14px] max-[320px]:uppercase "
+    >
+      Успейте открыть пробную неделю
+    </div>
+    <div
+      class="
+           flex items-center
+           font-bold 
+           text-[32px]    
+           leading-[110%] 
+           max-[320px]:text-[28px]
+    "
+      style="color: rgb(255, 187, 0);"
+    >
+      <div
+        class="text-[14px] pr-[8px]"
+      >
+        ✦
+      </div>
+      <span>
+        16
+      </span>
+      <span>
+        :
+      </span>
+      <span>
+        00
+      </span>
+      <div
+        class="text-[14px] pl-[8px]"
+      >
+        ✦
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
 exports[`HeaderTimer совпадает со snapshot 1`] = `
 <DocumentFragment>
   <header
