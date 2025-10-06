@@ -1,7 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
+@config "../../tailwind.config";
 
 :root {
     --color-yellow: #FDB056;
@@ -16,8 +14,8 @@
     --color-gray: #9B9B9B;
     --color-gray-100: #919191;
     --color-gray-300: #313637;
+    --color-gray-check-box-600: #606566;
     --color-gray-dark: #484D4E;
-
     --color-bgc: #191E1F;
 }
 

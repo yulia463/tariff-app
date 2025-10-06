@@ -22,21 +22,20 @@ export default function TariffCard({
 }) {
     const discountPercent = Math.round(100 - (tariff.price / tariff.full_price) * 100)
 
+    console.log("selected>>>", selected)
     return (
         <div
             onClick={onSelect}
             className={`
-relative flex flex-col
-    border-2
-    ${selected ? 'border-yellow' : 'border-gray-dark'}
-    ${isFirst ? 'rounded-[20px] md:rounded-[34px]' : 'rounded-[20px] md:rounded-[40px]'}
-    bg-gray-300
-    mb-[10px] pb-[20px] pl-[20px] pr-[20px]
-    sm:mb-[12px] md:mb-[20px] md:pr-[80px]
-
+                relative flex flex-col
+                border-2
+                ${selected ? 'border-yellow' : 'border-gray-dark'}
+                ${isFirst ? 'rounded-[20px] md:rounded-[34px]' : 'rounded-[20px] md:rounded-[40px]'}
+                bg-gray-300
+                mb-[10px] pb-[20px] pl-[20px] pr-[20px]
+                sm:mb-[12px] md:mb-[20px] md:pr-[80px]
   `}
         >
-            {/* --- скидка, если не первый --- */}
             {isDiscountActive && !isFirst && discountPercent > 0 && (
                 <div
                     className={`
@@ -54,7 +53,6 @@ relative flex flex-col
                 </div>
             )}
 
-            {/* --- скидка + ХИТ для первого --- */}
             {isFirst && discountPercent > 0 && (
                 <div
                     className={`
@@ -92,7 +90,6 @@ relative flex flex-col
                 </div>
             )}
 
-            {/* --- Контент: цена + текст --- */}
             <div
                 className={`
       flex flex-row justify-between items-center
@@ -101,7 +98,6 @@ relative flex flex-col
       ${isFirst ? 'md:flex-row md:pl-[122px] md:items-center' : 'md:flex-col md:items-center md:pl-0'}
     `}
             >
-                {/* --- Блок с ценой --- */}
                 <div
                     className={`
         flex flex-col items-start md:items-end

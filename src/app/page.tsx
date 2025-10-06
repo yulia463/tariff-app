@@ -1,23 +1,16 @@
 'use client'
 
 import {useGetItemsQuery} from "services/api";
-import React from 'react'
+import React, {useEffect} from 'react'
 import HeaderTimer from "@/app/components/HeaderTimer";
 import TariffCard from "@/app/components/TariffCard";
 
 export default function Page() {
     const {data: tariffs, error, isLoading} = useGetItemsQuery()
     const [isDiscountActive, setDiscountActive] = React.useState(true)
-    const [selectedId, setSelectedId] = React.useState<string | null>(null)
+    const [selectedId, setSelectedId] = React.useState<string | null>( null)
     const [agreeChecked, setAgreeChecked] = React.useState(false)
     const [buyError, setBuyError] = React.useState<string | null>(null)
-
-    React.useEffect(() => {
-        if (tariffs && tariffs.length && selectedId === null) {
-            const best = tariffs.find(t => t.is_best)
-            setSelectedId(best ? best.id : tariffs[0].id)
-        }
-    }, [tariffs, selectedId])
 
     const onExpire = () => setDiscountActive(false)
 
@@ -80,8 +73,8 @@ export default function Page() {
                             <TariffCard
                                 tariff={tariffs[0]}
                                 isDiscountActive={isDiscountActive}
-                                selected={selectedId === tariffs[0].id}
-                                onSelect={() => setSelectedId(tariffs[0].id)}
+                                selected={selectedId === `${tariffs[0].id}${tariffs[0].price}`}
+                                onSelect={() => setSelectedId(`${tariffs[0].id}${tariffs[0].price}`)}
                                 onBuyClick={handleBuy}
                                 showBig={tariffs[0].is_best}
                                 isFirst
@@ -101,8 +94,8 @@ export default function Page() {
                                     key={t.id}
                                     tariff={t}
                                     isDiscountActive={isDiscountActive}
-                                    selected={selectedId === t.id}
-                                    onSelect={() => setSelectedId(t.id)}
+                                    selected={selectedId === `${t.id}${t.price}`}
+                                    onSelect={() => setSelectedId(`${t.id}${t.price}`)}
                                     showBig={t.is_best}
                                     isFirst={false}
                                 />
