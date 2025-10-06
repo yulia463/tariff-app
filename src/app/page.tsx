@@ -109,6 +109,9 @@ export default function Page() {
                                 />
                             ))}
                         </div>
+                        <div className={'desctiption'}>Следуя плану на 3 месяца и более, люди получают в 2 раза лучший
+                            результат, чем за 1 месяц
+                        </div>
 
                         <div className="mb-[16px] sm:mb-[20px] md:mb-[16px]">
                             <label
